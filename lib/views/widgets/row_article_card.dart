@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RowArticleCard extends StatelessWidget {
@@ -17,8 +20,8 @@ class RowArticleCard extends StatelessWidget {
       child: Row(
         children: [
           Image.network(
-            'https://picsum.photos/250?image=10',
-          ),
+            'https://picsum.photos/250?image=${Random().nextInt(10)}',
+          ).animate().fadeIn(duration: 4000.ms),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 16.0),
@@ -39,12 +42,12 @@ class RowArticleCard extends StatelessWidget {
                   Text(
                     "A UX Case Study Creating a Studious Environment for Students: ",
                     style: GoogleFonts.sen(
-                      fontSize: 28,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 8,
                   ),
                   Text(
                     "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",

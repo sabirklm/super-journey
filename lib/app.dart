@@ -1,4 +1,6 @@
+import 'package:dev_community_portal/bloc/all_article_bloc.dart';
 import 'package:dev_community_portal/bloc/article_bloc.dart';
+import 'package:dev_community_portal/bloc/featured_article_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,6 +14,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => ArticleBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FeaturedArticleBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AllArticleBloc(),
         ),
       ],
       child: MaterialApp.router(
