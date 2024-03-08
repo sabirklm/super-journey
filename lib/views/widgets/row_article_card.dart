@@ -1,11 +1,16 @@
 import 'dart:math';
 
+import 'package:dev_community_portal/models/article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RowArticleCard extends StatelessWidget {
-  const RowArticleCard({super.key});
+  final Article article;
+  const RowArticleCard({
+    super.key,
+    required this.article,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,8 @@ class RowArticleCard extends StatelessWidget {
       child: Row(
         children: [
           Image.network(
-            'https://picsum.photos/250?image=${Random().nextInt(10)}',
+            article.urlToImage ??
+                'https://picsum.photos/250?image=${Random().nextInt(10)}',
           ).animate().fadeIn(duration: 4000.ms),
           Expanded(
             child: Padding(
@@ -29,7 +35,7 @@ class RowArticleCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Startup".toUpperCase(),
+                    "${article.type}".toUpperCase(),
                     style: GoogleFonts.sen(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -40,7 +46,7 @@ class RowArticleCard extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    "A UX Case Study Creating a Studious Environment for Students: ",
+                    "${article.title}",
                     style: GoogleFonts.sen(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -50,7 +56,7 @@ class RowArticleCard extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                    "${article.description}",
                     style: GoogleFonts.sen(
                       fontSize: 16,
                     ),

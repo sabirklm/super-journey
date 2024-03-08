@@ -8,6 +8,7 @@ part 'article.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Article {
+  final String? type;
   final String? title;
   final String? description;
   final String? url;
@@ -15,8 +16,10 @@ class Article {
   final String? publishedAt;
   final String? content;
   final List<Section>? sections;
+  
 
   Article({
+    this.type,
     this.title,
     this.description,
     this.url,

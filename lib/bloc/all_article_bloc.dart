@@ -12,7 +12,26 @@ class AllArticleBloc extends Bloc<AllArticleEvent, AllArticleState> {
       try {
         emit(AllArticleLoading());
         await Future.delayed(const Duration(seconds: 3));
-        var articles = [...List.generate(event.size, (index) => Article())];
+        var article = Article(
+          title: 'Featured Article',
+          sections: [
+            Section(
+              type: 'text',
+              heading: 'Section Title',
+              description: 'Section Description',
+            ),
+          ],
+          type: 'Featured Article',
+          description: 'Featured Article Description',
+          url: 'https://www.google.com',
+          urlToImage: 'https://picsum.photos/250?image=9',
+        );
+        var articles = [
+          ...List.generate(
+            event.size,
+            (index) => article,
+          ),
+        ];
         emit(AllArticleLoaded(articles: articles));
         return;
       } catch (e) {

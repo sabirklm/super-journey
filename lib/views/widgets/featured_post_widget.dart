@@ -1,4 +1,3 @@
-import 'package:dev_community_portal/styles/text_styles.dart';
 import 'package:dev_community_portal/views/widgets/user_info_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -34,13 +33,13 @@ class FeaturedPostWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Featured Post",
+                      "${article.type}",
                       style: GoogleFonts.sen(
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      "Step-by-step guide to choosing great font pairs",
+                      "${article.title}",
                       style: GoogleFonts.sen(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -55,7 +54,7 @@ class FeaturedPostWidget extends StatelessWidget {
                       height: 8,
                     ),
                     Text(
-                      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                      "${article.description}",
                       style: GoogleFonts.sen(
                         fontSize: 16,
                         color: const Color(0xff6D6E76),
@@ -84,7 +83,7 @@ class FeaturedPostWidget extends StatelessWidget {
                 ),
               ),
               Image.network(
-                'https://picsum.photos/250?image=9',
+                article.urlToImage ?? 'https://picsum.photos/250?image=9',
               ).animate().fadeIn(duration: 3700.ms),
             ],
           ),

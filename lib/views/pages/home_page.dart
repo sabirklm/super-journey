@@ -1,10 +1,10 @@
-import 'package:dev_community_portal/bloc/all_article_bloc.dart';
-import 'package:dev_community_portal/bloc/featured_article_bloc.dart';
-import 'package:dev_community_portal/styles/text_styles.dart';
-import 'package:dev_community_portal/views/widgets/featured_post_widget.dart';
-import 'package:dev_community_portal/views/widgets/header_widget.dart';
-import 'package:dev_community_portal/views/widgets/row_article_card.dart';
-import 'package:dev_community_portal/views/widgets/user_info_rich_text.dart';
+import '/bloc/all_article_bloc.dart';
+import '/bloc/featured_article_bloc.dart';
+import '/styles/text_styles.dart';
+import '/views/widgets/featured_post_widget.dart';
+import '/views/widgets/header_widget.dart';
+import '/views/widgets/row_article_card.dart';
+import '/views/widgets/user_info_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -116,7 +116,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ...List.generate(
                       state.articles.length,
-                      (index) => const RowArticleCard(),
+                      (index) => RowArticleCard(
+                        article: state.articles[index],
+                      ),
                     ),
                   ],
                 );
